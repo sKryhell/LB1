@@ -2,13 +2,19 @@
 
 namespace LB1
 {
+    //Контекст преднозначен для подключения к базе данных 
     internal class ApplicationContext: DbContext    
     {
-        public DbSet<User> Users { get; set; } = null;
+        //Свойство Users позволяет контексту работать с таблицей Users
+        public DbSet<User> Users { get; set; } = null; 
+
         public ApplicationContext()
         {
+            // Создает базу данных и таблицы в ней 
             Database.EnsureCreated();
         }
+
+        // OnConfiguring этот метод содержит настройки для подключения к БД
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(

@@ -1,5 +1,6 @@
 ﻿namespace LB1
 {
+    //модель данных "User" предназначина для работы с таблицей "Users"
     internal class User
     {
         public int Id { get; set; }
